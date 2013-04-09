@@ -32,7 +32,7 @@ fi
 
 
 DELEGATE="http://www.imagemagick.org/download/delegates/jasper-1.900.1.zip"
-curl --silent --max-time 60 --location "$DELEGATE" | tar xf
+curl --silent --max-time 60 --location "$DELEGATE" | tar x
 cd jasper-1.900.1
 ./configure
 make && make install
