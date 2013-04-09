@@ -42,9 +42,6 @@ curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
-# copy extensions
-cp /app/www/ext/* php/ext
-
 # make php available on bin
 mkdir -p bin
 ln -s /app/php/bin/php bin/php
@@ -61,6 +58,7 @@ export LD_LIBRARY_PATH=/app/php/ext
 export PHP_INI_SCAN_DIR=/app/www
 php/bin/pear install mail
 php/bin/pear install Net_SMTP
+cp /app/www/ext/* /app/php/ext
 echo "Launching apache"
 exec /app/apache/bin/httpd -DNO_DETACH
 EOF
