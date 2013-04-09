@@ -30,6 +30,15 @@ if [ -f www/Procfile ]; then
   mv www/Procfile .
 fi
 
+
+DELEGATE="http://www.imagemagick.org/download/delegates/jasper-1.900.1.zip"
+curl --silent --max-time 60 --location "$DELEGATE" | tar xz
+cd jasper-1.900.1
+./configure
+make && make install
+cd ..
+
+
 APACHE_URL="https://s3.amazonaws.com/php-lp/apache-$APACHE_VERSION.tar.gz"
 echo "-----> Bundling Apache version $APACHE_VERSION"
 curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
