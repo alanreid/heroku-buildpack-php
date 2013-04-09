@@ -43,7 +43,7 @@ cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
 # copy extensions
-cp $CACHE_DIR/ext/* php/ext
+cp $CACHE_DIR/www/ext/* php/ext
 
 # make php available on bin
 mkdir -p bin
